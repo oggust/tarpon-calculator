@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Tarpon</string>
+    <string name="app_name">Tarpon Calculator</string>
     <string name="action_settings">Settings</string>
     <string name="action_about">About the app</string>
     <string name="edit_message_length">Fork length (cm)</string>
@@ -10,7 +10,11 @@
     <string name="edit_message_girth_clown">Girth (inches)</string>
     <string name="button_send">Do the math!</string>
     <string name="title_activity_display_message">And it weighs …</string>
+    <string name="result_new_formula">%1$.2f %2$s</string>
+    <string name="with_the_old_formula">(With the old formula: %1$.2f %2$s)</string>
     <string name="title_activity_settings">Settings</string>
+    <string name="lb">lb</string>
+    <string name="kg">kg</string>
     <string name="new_weight">Weight</string>
     <string name="old_weight">Old weight</string>
     <string name="pref_unit">Imperial units</string>
@@ -18,12 +22,15 @@
     <string name="title_activity_about">About</string>
     <string name="version_text">Tarpon Calculator 1.0</string>
     <string name="about_text">\n
-The \"New formula\" is from the paper <i>\"A reliable game fish weight estimation model for Atlantic Tarpon (Megalops Atlanticus)\"</i>
-(Ault and Luo, 2013)\n\n
-The \"Old formula\" is the classic (and quite inaccurate) <i>weight = length * girth * girth / 800</i> (inches, pounds)\n\n
-This app is Free Software.\n
-If you want to donate anything, donate it to the Bonefish &amp; Tarpon Trust (BTT).\n
-http://www.bonefishtarpontrust.org\n\n
-Bugs? Feature requests? I\'m oggust@gmail.com</string>
+        The \"New formula\" is from the paper
+        <i>\"A reliable game fish weight estimation model for Atlantic Tarpon (Megalops Atlanticus)\"</i>
+        (Ault and Luo, 2013)\n\n
+        The \"Old formula\" is the classic (and quite inaccurate) \n
+        <i>weight = length * girth * girth / 800</i>\n(inches, pounds)\n\n
+
+        This app is Free Software. The code is at https://github.com/oggust/tarpon-calculator.git\n
+        If you want to donate anything, donate it to the Bonefish &amp; Tarpon Trust (BTT).\n
+        http://www.bonefishtarpontrust.org\n\n
+        Bugs? Feature requests? I\'m oggust@gmail.com</string>
 
 </resources>
