@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
         return true;
     }
     
-    /** Called when the user clicks the Send button */
+    /** Called when the user clicks the "Do the math" button */
     public void sendMessage(View view) {
         // Do something in response to button
     	Intent intent = new Intent(this, DisplayMessageActivity.class);

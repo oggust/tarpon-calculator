@@ -1,5 +1,6 @@
 package com.polytrout.tarpon;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -20,9 +21,11 @@ public class AboutActivity extends Activity {
 	 * Set up the {@link android.app.ActionBar}.
 	 */
 	private void setupActionBar() {
-
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+			if (getActionBar() != null) {
+				getActionBar().setDisplayHomeAsUpEnabled(true);
+			}
+		}
 	}
 
 	@Override

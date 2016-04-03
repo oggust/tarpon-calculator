@@ -1,7 +1,5 @@
 package com.polytrout.tarpon;
 
-import java.text.DecimalFormat;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
@@ -26,7 +24,6 @@ public class DisplayMessageActivity extends Activity {
         Intent intent = getIntent();
         final double length = Double.parseDouble(intent.getStringExtra(MainActivity.EXTRA_LENGTH));
         final double girth = Double.parseDouble(intent.getStringExtra(MainActivity.EXTRA_GIRTH));
-        final DecimalFormat df = new DecimalFormat("#.00");
 
         // Get unit preference
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -37,13 +34,19 @@ public class DisplayMessageActivity extends Activity {
         TextView oldResult = (TextView) findViewById(R.id.old_weight);
 
         if (clown) {
-        	newResult.setText(df.format(newFormula(length * 2.54, girth * 2.54) / 0.453592) + " lb");
-        	oldResult.setText("(With the old formula: " + 
-        		              df.format(oldFormula(length * 2.54, girth * 2.54) / 0.453592) + " lb)");
+			String unit = getString(R.string.lb);
+        	newResult.setText(String.format(getString(R.string.result_new_formula),
+					                        newFormula(length * 2.54, girth * 2.54) / 0.453592,
+                                            unit));
+        	oldResult.setText(String.format(getString(R.string.with_the_old_formula),
+        		                            oldFormula(length * 2.54, girth * 2.54) / 0.453592,
+                                            unit));
         } else {
-        	newResult.setText(df.format(newFormula(length, girth)) + " kg");
-        	oldResult.setText("(With the old formula: " +
-        		              df.format(oldFormula(length, girth)) + " kg)");
+			String unit = getString(R.string.kg);
+			newResult.setText(String.format(getString(R.string.result_new_formula),
+					                        newFormula(length, girth), unit));
+			oldResult.setText(String.format(getString(R.string.with_the_old_formula),
+					                        oldFormula(length, girth), unit));
         }
         // Set the text view as the activity layout
        // setContentView(newResult);
@@ -56,7 +59,9 @@ public class DisplayMessageActivity extends Activity {
 
 	private void setupActionBar() {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			getActionBar().setDisplayHomeAsUpEnabled(true);
+            if (getActionBar() != null) {
+                getActionBar().setDisplayHomeAsUpEnabled(true);
+            }
 		}
 	}
 
