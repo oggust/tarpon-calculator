@@ -2,17 +2,24 @@ package com.polytrout.tarpon;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class DisplayMessageActivity extends Activity {
+
+    private String length_str;
+    private String girth_str;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +29,10 @@ public class DisplayMessageActivity extends Activity {
         setupActionBar();
         
         Intent intent = getIntent();
-        final double length = Double.parseDouble(intent.getStringExtra(MainActivity.EXTRA_LENGTH));
-        final double girth = Double.parseDouble(intent.getStringExtra(MainActivity.EXTRA_GIRTH));
+        length_str = intent.getStringExtra(MainActivity.EXTRA_LENGTH);
+        girth_str = intent.getStringExtra(MainActivity.EXTRA_GIRTH);
+        final double length = Double.parseDouble(length_str);
+        final double girth = Double.parseDouble(girth_str);
 
         // Get unit preference
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -128,4 +137,30 @@ public class DisplayMessageActivity extends Activity {
 	    final double G2 = G*G;
 	    return  b0 + b1*G2*L + b2*G*L + b3*G2 + b4*G + b5*L;
 	}
+
+    /** Called when the user clicks the "Save this result" button */
+    public void saveData(View view) {
+
+    	// Save to database
+        TarponTableDbHelper dbHelper = new TarponTableDbHelper(view.getContext());
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(TarponTableContract.TarponEntry.COLUMN_NAME_LENGTH, length_str);
+        values.put(TarponTableContract.TarponEntry.COLUMN_NAME_GIRTH, girth_str);
+        values.put(TarponTableContract.TarponEntry.COLUMN_NAME_CTIME,
+                   System.currentTimeMillis() / 1000);
+
+        long newRowId;
+        newRowId = db.insert(
+                 TarponTableContract.TarponEntry.TABLE_NAME,
+                 null,
+                 values);
+
+        // TODO(check that Row ID somehow?)
+        // Ghost button and change text to "saved"
+        Button b = (Button) findViewById(R.id.save_button);
+        b.setText(getString(R.string.saved));
+        b.setEnabled(false);
+    }
 }

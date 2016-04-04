@@ -9,6 +9,7 @@
     <string name="edit_message_length_clown">Fork length (inches)</string>
     <string name="edit_message_girth_clown">Girth (inches)</string>
     <string name="button_send">Do the math!</string>
+    <string name="button_save">Save this result</string>
     <string name="title_activity_display_message">And it weighs …</string>
     <string name="result_new_formula">%1$.2f %2$s</string>
     <string name="with_the_old_formula">(With the old formula: %1$.2f %2$s)</string>
@@ -16,7 +17,8 @@
     <string name="lb">lb</string>
     <string name="kg">kg</string>
     <string name="new_weight">Weight</string>
-    <string name="old_weight">Old weight</string>
+    <string name="old_weight">(With the old formula: Old weight)</string>
+    <string name="saved">Saved</string>
     <string name="pref_unit">Imperial units</string>
     <string name="pref_unit_summary">aka \"US customary\"</string>
     <string name="title_activity_about">About</string>
