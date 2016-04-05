@@ -25,7 +25,7 @@
     <string name="version_text">Tarpon Calculator 1.0</string>
     <string name="about_text">\n
         The \"New formula\" is from the paper
-        <i>\"A reliable game fish weight estimation model for Atlantic Tarpon (Megalops Atlanticus)\"</i>
+        \"A reliable game fish weight estimation model for Atlantic Tarpon (<i>Megalops atlanticus</i>)\"
         (Ault and Luo, 2013)\n\n
         The \"Old formula\" is the classic (and quite inaccurate) \n
         <i>weight = length * girth * girth / 800</i>\n(inches, pounds)\n\n

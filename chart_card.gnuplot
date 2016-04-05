@@ -1,7 +1,13 @@
-#!/usr/bin/gnuplot
+#!/usr/bin/gnuplot -c
 set terminal pngcairo size 900,500 font "Arial,8"
 
-use_SI = 1
+# Commandline switch for USC units
+if (ARG1 eq "use_usc") {
+    use_SI = 0
+} else {
+    use_SI = 1
+}
+
 use_old = 0
 
 b0 = 2.828
