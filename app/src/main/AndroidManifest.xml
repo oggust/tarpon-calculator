@@ -42,6 +42,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.polytrout.tarpon.MainActivity" />
         </activity>
+        <activity
+            android:name="com.polytrout.tarpon.TarponTableActivity"
+            android:label="Tarpon Table"
+            android:parentActivityName="com.polytrout.tarpon.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.polytrout.tarpon.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

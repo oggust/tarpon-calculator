@@ -6,7 +6,7 @@ import android.provider.BaseColumns;
 public final class TarponTableContract {
 
     public static final  int    DATABASE_VERSION   = 1;
-    public static final  String DATABASE_NAME      = "tarpontable.db";
+    public static final  String DATABASE_NAME      = "TarponTable.db";
 
     // To prevent someone from accidentally instantiating the contract class,
     // give it a private constructor.

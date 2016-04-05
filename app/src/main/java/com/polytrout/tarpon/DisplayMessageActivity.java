@@ -100,7 +100,9 @@ public class DisplayMessageActivity extends Activity {
         case R.id.action_settings:
             openSettings();
             return true;
-
+        case R.id.action_tarpon_table:
+            openTarponTable();
+            return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -115,6 +117,11 @@ public class DisplayMessageActivity extends Activity {
     	startActivity(intent);
     }
 
+    private void openTarponTable() {
+    	Intent intent = new Intent(this, TarponTableActivity.class);
+    	startActivity(intent);
+    }
+
 	// Classic formula. In clown units, so convert.
 	private double oldFormula(double length, double girth) {
 		final double inch_length = length / 2.54;
@@ -125,7 +132,8 @@ public class DisplayMessageActivity extends Activity {
 	
 	// New and shiny (ALE) formula. (Ault and Luo, 2013)
 	// ("A reliable game fish weight estimation model for Atlantic Tarpon (Megalops Atlanticus)")
-	// (The odd variable names are from the paper)
+	// (The non-java-like variable names are from the paper)
+    // L and G are in cm, the return value in kg.
 	private double newFormula(double L, double G) {
 	    final double b0 = 2.828;
 	    final double b1 = 0.0000296;
@@ -151,13 +159,11 @@ public class DisplayMessageActivity extends Activity {
         values.put(TarponTableContract.TarponEntry.COLUMN_NAME_CTIME,
                    System.currentTimeMillis() / 1000);
 
-        long newRowId;
-        newRowId = db.insert(
-                 TarponTableContract.TarponEntry.TABLE_NAME,
-                 null,
-                 values);
+        db.insertOrThrow(
+                TarponTableContract.TarponEntry.TABLE_NAME,
+                null,
+                values);
 
-        // TODO(check that Row ID somehow?)
         // Ghost button and change text to "saved"
         Button b = (Button) findViewById(R.id.save_button);
         b.setText(getString(R.string.saved));

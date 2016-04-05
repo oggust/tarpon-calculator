@@ -62,6 +62,9 @@ public class MainActivity extends Activity {
             case R.id.action_settings:
                 openSettings();
                 return true;
+            case R.id.action_tarpon_table:
+                openTarponTable();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -74,6 +77,10 @@ public class MainActivity extends Activity {
     }
     private void openSettings() {
     	Intent intent = new Intent(this, SettingsActivity.class);
+    	startActivity(intent);
+    }
+    private void openTarponTable() {
+    	Intent intent = new Intent(this, TarponTableActivity.class);
     	startActivity(intent);
     }
 }

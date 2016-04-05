@@ -7,11 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TarponTableDbHelper extends SQLiteOpenHelper {
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "TarponTable.db";
 
     public TarponTableDbHelper(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, TarponTableContract.DATABASE_NAME, null,
+                TarponTableContract.DATABASE_VERSION);
     }
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TarponTableContract.TarponEntry.CREATE_TABLE);
