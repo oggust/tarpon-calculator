@@ -132,8 +132,8 @@ public class DisplayMessageActivity extends Activity {
 	
 	// New and shiny (ALE) formula. (Ault and Luo, 2013)
 	// ("A reliable game fish weight estimation model for Atlantic Tarpon (Megalops Atlanticus)")
-	// (The non-java-like variable names are from the paper)
-    // L and G are in cm, the return value in kg.
+	// (The non-java-like variable names are from the paper
+	// L and G are in cm, the return value in kg.
 	private double newFormula(double L, double G) {
 	    final double b0 = 2.828;
 	    final double b1 = 0.0000296;
