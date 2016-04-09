@@ -136,7 +136,7 @@ public class DisplayMessageActivity extends Activity {
         values.put(TarponTableContract.TarponEntry.COLUMN_NAME_LENGTH, length_str + unit);
         values.put(TarponTableContract.TarponEntry.COLUMN_NAME_GIRTH, girth_str + unit);
         values.put(TarponTableContract.TarponEntry.COLUMN_NAME_CTIME,
-                   System.currentTimeMillis() / 1000);
+                   System.currentTimeMillis());
 
         db.insertOrThrow(
                 TarponTableContract.TarponEntry.TABLE_NAME,

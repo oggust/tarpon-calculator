@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.widget.ListAdapter;
 
 /**
@@ -37,25 +36,13 @@ public class TarponTableActivity extends ListActivity {
                 TarponTableContract.TarponEntry.COLUMN_NAME_CTIME + " DESC" // The sort order
         );
 
-        ListAdapter adapter = new SimpleCursorAdapter(this,
-                R.layout.tarpon_table_entry,
-                c,
-                new String[] {
-                        TarponTableContract.TarponEntry.COLUMN_NAME_CTIME,
-                        TarponTableContract.TarponEntry.COLUMN_NAME_LENGTH,
-                        TarponTableContract.TarponEntry.COLUMN_NAME_GIRTH },
-                // Parallel array of which template objects to bind to those
-                // columns.
-                new int[] { R.id.DateLine, R.id.LengthLine, R.id.GirthLine },
-                SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER
-        );
-
+        ListAdapter adapter = new TarponTableEntryAdapter(this, c);
         setListAdapter(adapter);
 
     }
 
 
-    	/**
+    /**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.
 	 */
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
