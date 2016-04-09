@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
-public class TarponTableDbHelper extends SQLiteOpenHelper {
+class TarponTableDbHelper extends SQLiteOpenHelper {
     // If you change the database schema, you must increment the database version.
 
     public TarponTableDbHelper(Context context) {

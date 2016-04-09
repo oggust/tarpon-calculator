@@ -3,6 +3,7 @@
 
     <string name="app_name">Tarpon Calculator</string>
     <string name="action_settings">Settings</string>
+    <string name="action_tarpon_table">Tarpon Table</string>
     <string name="action_about">About the app</string>
     <string name="edit_message_length">Fork length (cm)</string>
     <string name="edit_message_girth">Girth (cm)</string>

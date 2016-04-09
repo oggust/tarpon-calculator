@@ -15,8 +15,6 @@ import android.widget.ListAdapter;
  */
 public class TarponTableActivity extends ListActivity {
 
-    private SQLiteDatabase db;
-
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,12 +26,12 @@ public class TarponTableActivity extends ListActivity {
 
     private void populateList() {
         TarponTableDbHelper dbHelper = new TarponTableDbHelper(this);
-        db = dbHelper.getReadableDatabase();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.query(
                 TarponTableContract.TarponEntry.TABLE_NAME,  // The table to query
                 null,                                        // The columns to return (all)
-                "_id=?",                                     // The columns for the WHERE clause
-                new String[] {"*"},                          // The values for the WHERE clause
+                "_id is not null",                           // The columns for the WHERE clause
+                null,                                        // The values for the WHERE clause
                 null,                                        // don't group the rows
                 null,                                        // don't filter by row groups
                 TarponTableContract.TarponEntry.COLUMN_NAME_CTIME + " DESC" // The sort order

@@ -5,10 +5,19 @@
       <w>ault</w>
       <w>bonefish</w>
       <w>bonefishtarpontrust</w>
+      <w>cntrparam</w>
       <w>ctime</w>
+      <w>gnuplot</w>
       <w>megalops</w>
+      <w>noautotitle</w>
+      <w>pngcairo</w>
       <w>polytrout</w>
+      <w>splot</w>
       <w>tarpontable</w>
+      <w>xlabel</w>
+      <w>xrange</w>
+      <w>ylabel</w>
+      <w>yrange</w>
     </words>
   </dictionary>
 </component>
