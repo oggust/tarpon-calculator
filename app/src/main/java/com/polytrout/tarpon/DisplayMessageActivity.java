@@ -20,6 +20,7 @@ public class DisplayMessageActivity extends Activity {
 
     private String length_str;
     private String girth_str;
+    private boolean clown;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class DisplayMessageActivity extends Activity {
 
         // Get unit preference
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean clown = sharedPref.getBoolean("pref_unit", false);
+        clown = sharedPref.getBoolean("pref_unit", false);
 
         // Get handles to the text views
         TextView newResult = (TextView) findViewById(R.id.new_weight);
@@ -45,17 +46,17 @@ public class DisplayMessageActivity extends Activity {
         if (clown) {
 			String unit = getString(R.string.lb);
         	newResult.setText(String.format(getString(R.string.result_new_formula),
-					                        newFormula(length * 2.54, girth * 2.54) / 0.453592,
+					                        Formula.newFormula(length * 2.54, girth * 2.54) / 0.453592,
                                             unit));
         	oldResult.setText(String.format(getString(R.string.with_the_old_formula),
-        		                            oldFormula(length * 2.54, girth * 2.54) / 0.453592,
+        		                            Formula.oldFormula(length * 2.54, girth * 2.54) / 0.453592,
                                             unit));
         } else {
 			String unit = getString(R.string.kg);
 			newResult.setText(String.format(getString(R.string.result_new_formula),
-					                        newFormula(length, girth), unit));
+					                        Formula.newFormula(length, girth), unit));
 			oldResult.setText(String.format(getString(R.string.with_the_old_formula),
-					                        oldFormula(length, girth), unit));
+					                        Formula.oldFormula(length, girth), unit));
         }
         // Set the text view as the activity layout
        // setContentView(newResult);
@@ -122,29 +123,6 @@ public class DisplayMessageActivity extends Activity {
     	startActivity(intent);
     }
 
-	// Classic formula. In clown units, so convert.
-	private double oldFormula(double length, double girth) {
-		final double inch_length = length / 2.54;
-		final double inch_girth = girth / 2.54;
-		final double pounds_weight = inch_length * inch_girth * inch_girth / 800.0;
-		return pounds_weight * 0.453592; //says google
-	}
-	
-	// New and shiny (ALE) formula. (Ault and Luo, 2013)
-	// ("A reliable game fish weight estimation model for Atlantic Tarpon (Megalops Atlanticus)")
-	// (The non-java-like variable names are from the paper
-	// L and G are in cm, the return value in kg.
-	private double newFormula(double L, double G) {
-	    final double b0 = 2.828;
-	    final double b1 = 0.0000296;
-	    final double b2 = 0.006123;
-	    final double b3 = -0.008284;
-	    final double b4 = 0.1845;
-	    final double b5 = -0.1943;
-
-	    final double G2 = G*G;
-	    return  b0 + b1*G2*L + b2*G*L + b3*G2 + b4*G + b5*L;
-	}
 
     /** Called when the user clicks the "Save this result" button */
     public void saveData(View view) {
@@ -153,9 +131,10 @@ public class DisplayMessageActivity extends Activity {
         TarponTableDbHelper dbHelper = new TarponTableDbHelper(view.getContext());
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
+        String unit = clown?" in":" cm";
         ContentValues values = new ContentValues();
-        values.put(TarponTableContract.TarponEntry.COLUMN_NAME_LENGTH, length_str);
-        values.put(TarponTableContract.TarponEntry.COLUMN_NAME_GIRTH, girth_str);
+        values.put(TarponTableContract.TarponEntry.COLUMN_NAME_LENGTH, length_str + unit);
+        values.put(TarponTableContract.TarponEntry.COLUMN_NAME_GIRTH, girth_str + unit);
         values.put(TarponTableContract.TarponEntry.COLUMN_NAME_CTIME,
                    System.currentTimeMillis() / 1000);
 

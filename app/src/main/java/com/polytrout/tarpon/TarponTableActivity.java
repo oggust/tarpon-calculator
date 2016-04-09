@@ -38,15 +38,15 @@ public class TarponTableActivity extends ListActivity {
         );
 
         ListAdapter adapter = new SimpleCursorAdapter(this,
-                android.R.layout.two_line_list_item,
+                R.layout.tarpon_table_entry,
                 c,
                 new String[] {
-      //                  TarponTableContract.TarponEntry.COLUMN_NAME_CTIME,
+                        TarponTableContract.TarponEntry.COLUMN_NAME_CTIME,
                         TarponTableContract.TarponEntry.COLUMN_NAME_LENGTH,
                         TarponTableContract.TarponEntry.COLUMN_NAME_GIRTH },
                 // Parallel array of which template objects to bind to those
                 // columns.
-                new int[] { android.R.id.text1, android.R.id.text2 },
+                new int[] { R.id.DateLine, R.id.LengthLine, R.id.GirthLine },
                 SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER
         );
 

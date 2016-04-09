@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="6dip" >
+
+    <TextView
+        android:id="@+id/WeightLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:gravity="start|center_vertical"
+        android:text="@string/example_text_weight"
+        android:textSize="30sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin" />
+
+    <TextView
+        android:id="@+id/DateLine"
+        android:layout_width="fill_parent"
+        android:layout_height="26dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="@string/example_text_date"
+        android:textSize="12sp"
+        android:gravity="end" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_toEndOf="@+id/WeightLine"
+        android:layout_toRightOf="@+id/WeightLine">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/LengthLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="26dip"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@string/length"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/LengthLine"
+                android:layout_width="wrap_content"
+                android:layout_height="26dip"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@string/example_text_length"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/GirthLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="26dip"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@string/girth"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/GirthLine"
+                android:layout_width="wrap_content"
+                android:layout_height="26dip"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:text="@string/example_text_girth"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
