@@ -14,13 +14,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
 public class DisplayMessageActivity extends Activity {
 
     private String length_str;
     private String girth_str;
+    private String weight_unit;
+    private String length_unit;
     private boolean clown;
+    private ShareActionProvider mShareActionProvider;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,19 +48,21 @@ public class DisplayMessageActivity extends Activity {
         TextView oldResult = (TextView) findViewById(R.id.old_weight);
 
         if (clown) {
-			String unit = getString(R.string.lb);
+			weight_unit = getString(R.string.lb);
+            length_unit = getString(R.string.in);
         	newResult.setText(String.format(getString(R.string.result_new_formula),
 					                        Formula.newFormula(length * 2.54, girth * 2.54) / 0.453592,
-                                            unit));
+                                            weight_unit));
         	oldResult.setText(String.format(getString(R.string.with_the_old_formula),
         		                            Formula.oldFormula(length * 2.54, girth * 2.54) / 0.453592,
-                                            unit));
+                                            weight_unit));
         } else {
-			String unit = getString(R.string.kg);
+			weight_unit = getString(R.string.kg);
+            length_unit = getString(R.string.cm);
 			newResult.setText(String.format(getString(R.string.result_new_formula),
-					                        Formula.newFormula(length, girth), unit));
+					                        Formula.newFormula(length, girth), weight_unit));
 			oldResult.setText(String.format(getString(R.string.with_the_old_formula),
-					                        Formula.oldFormula(length, girth), unit));
+					                        Formula.oldFormula(length, girth), weight_unit));
         }
         // Set the text view as the activity layout
        // setContentView(newResult);
@@ -77,8 +83,29 @@ public class DisplayMessageActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.display_message, menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.display_message, menu);
+
+        MenuItem item = menu.findItem(R.id.menu_item_share);
+
+        // Fetch and store ShareActionProvider
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            mShareActionProvider = (ShareActionProvider) item.getActionProvider();
+
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            TextView newResult = (TextView) findViewById(R.id.new_weight);
+            TextView oldResult = (TextView) findViewById(R.id.old_weight);
+
+            shareIntent.putExtra(Intent.EXTRA_TEXT, String.format(getString(R.string.share_text),
+                    newResult.getText(), oldResult.getText(),
+                    length_str, length_unit, girth_str, length_unit));
+            shareIntent.setType("text/plain");
+
+            if (mShareActionProvider != null) {
+                mShareActionProvider.setShareIntent(shareIntent);
+            }
+        }
 		return true;
 	}
 
