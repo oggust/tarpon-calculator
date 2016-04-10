@@ -47,6 +47,10 @@ class TarponTableEntryAdapter extends CursorAdapter {
         length_tv.setText(length);
         girth_tv.setText(girth);
 
+        // Set the database _id here, so I can get it from the onclick handler.
+        int db_id = cursor.getInt(cursor.getColumnIndex("_id"));
+        view.setTag(db_id);
+
         long ctime = cursor.getLong(cursor.getColumnIndex(TarponTableContract.TarponEntry.COLUMN_NAME_CTIME));
         String date_string  = DateFormat.getDateTimeInstance().format(new Date(ctime));
         date_tv.setText(date_string);
