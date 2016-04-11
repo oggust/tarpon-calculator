@@ -15,12 +15,10 @@ import java.util.Date;
  * This fills out the table using data from the database.
  */
 class TarponTableEntryAdapter extends CursorAdapter {
-    private final Context context;
     private final LayoutInflater cursorInflater;
 
     public TarponTableEntryAdapter(Context context, Cursor c) {
         super(context, c, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
-        this.context = context;
         cursorInflater = (LayoutInflater) context.getSystemService(
                      Context.LAYOUT_INFLATER_SERVICE);
     }

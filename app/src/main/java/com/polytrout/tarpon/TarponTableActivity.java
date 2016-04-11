@@ -21,7 +21,8 @@ import android.widget.ListAdapter;
 
 public class TarponTableActivity extends ListActivity {
 
-    private static final int MENU_DELETE = 1;
+    private static final int MENU_SHARE = 1;
+    private static final int MENU_DELETE = 2;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class TarponTableActivity extends ListActivity {
         Cursor c = getCursor(db);
         ((TarponTableEntryAdapter) getListAdapter()).swapCursor(c);
     }
-//
+
 //    @Override
 //    protected void onListItemClick(ListView l, View v, int position, long id) {
 //        Toast.makeText(this, v.getTag() + " selected", Toast.LENGTH_LONG).show();
@@ -73,6 +74,7 @@ public class TarponTableActivity extends ListActivity {
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        menu.add(Menu.NONE, MENU_SHARE, Menu.NONE, "Share");
         menu.add(Menu.NONE, MENU_DELETE, Menu.NONE, "Delete");
     }
 
