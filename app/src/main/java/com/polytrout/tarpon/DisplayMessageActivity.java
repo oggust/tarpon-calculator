@@ -17,6 +17,9 @@ import android.widget.Button;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
+import java.util.Date;
+import java.util.TimeZone;
+
 public class DisplayMessageActivity extends Activity {
 
     private String length_str;
@@ -163,7 +166,11 @@ public class DisplayMessageActivity extends Activity {
         values.put(TarponTableContract.TarponEntry.COLUMN_NAME_LENGTH, length_str + unit);
         values.put(TarponTableContract.TarponEntry.COLUMN_NAME_GIRTH, girth_str + unit);
         values.put(TarponTableContract.TarponEntry.COLUMN_NAME_CTIME,
-                   System.currentTimeMillis());
+                   System.currentTimeMillis()); // in UTC
+        TimeZone tz = TimeZone.getDefault();
+        Date now = new Date();
+        values.put(TarponTableContract.TarponEntry.COLUMN_NAME_TZ,
+                   tz.getDisplayName(tz.inDaylightTime(now), TimeZone.SHORT));
 
         db.insertOrThrow(
                 TarponTableContract.TarponEntry.TABLE_NAME,
