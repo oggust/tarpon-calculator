@@ -24,12 +24,10 @@ public class DisplayMessageActivity extends Activity {
 
     private String length_str;
     private String girth_str;
-    private String weight_unit;
     private String length_unit;
     private boolean clown;
-    private ShareActionProvider mShareActionProvider;
 
-	@Override
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_display_message);
@@ -50,15 +48,16 @@ public class DisplayMessageActivity extends Activity {
         TextView newResult = (TextView) findViewById(R.id.new_weight);
         TextView oldResult = (TextView) findViewById(R.id.old_weight);
 
+        String weight_unit;
         if (clown) {
 			weight_unit = getString(R.string.lb);
             length_unit = getString(R.string.in);
         	newResult.setText(String.format(getString(R.string.result_new_formula),
 					                        Formula.newFormula(length * 2.54, girth * 2.54) / 0.453592,
-                                            weight_unit));
+                    weight_unit));
         	oldResult.setText(String.format(getString(R.string.with_the_old_formula),
         		                            Formula.oldFormula(length * 2.54, girth * 2.54) / 0.453592,
-                                            weight_unit));
+                    weight_unit));
         } else {
 			weight_unit = getString(R.string.kg);
             length_unit = getString(R.string.cm);
@@ -93,7 +92,7 @@ public class DisplayMessageActivity extends Activity {
 
         // Fetch and store ShareActionProvider
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            mShareActionProvider = (ShareActionProvider) item.getActionProvider();
+            ShareActionProvider mShareActionProvider = (ShareActionProvider) item.getActionProvider();
 
             Intent shareIntent = new Intent();
             shareIntent.setAction(Intent.ACTION_SEND);

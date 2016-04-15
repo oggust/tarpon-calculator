@@ -9,6 +9,4 @@
         android:id="@android:id/list"
         android:layout_gravity="center_horizontal"
         android:headerDividersEnabled="false" />
-
-
 </LinearLayout>

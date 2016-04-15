@@ -38,14 +38,13 @@ public class MainActivity extends Activity {
     
     /** Called when the user clicks the "Do the math" button */
     public void sendMessage(View view) {
-        // Do something in response to button
-    	Intent intent = new Intent(this, DisplayMessageActivity.class);
     	EditText lengthText = (EditText) findViewById(R.id.edit_message_length);
     	EditText girthText = (EditText) findViewById(R.id.edit_message_girth);
     	String length = lengthText.getText().toString();
     	String girth = girthText.getText().toString();
 
     	if(length.length() != 0 && girth.length() != 0) {
+            Intent intent = new Intent(this, DisplayMessageActivity.class);
     	    intent.putExtra(EXTRA_LENGTH, length);
     	    intent.putExtra(EXTRA_GIRTH, girth);
     	    startActivity(intent);
