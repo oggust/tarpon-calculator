@@ -77,7 +77,9 @@ public class TarponTableActivity extends ListActivity {
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        menu.add(Menu.NONE, MENU_SHARE, 1, "Share");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            menu.add(Menu.NONE, MENU_SHARE, 1, "Share");
+        }
         menu.add(Menu.NONE, MENU_DELETE, 2, "Delete");
     }
 
@@ -94,9 +96,9 @@ public class TarponTableActivity extends ListActivity {
             TextView length = (TextView) v.findViewById(R.id.LengthLine);
             TextView girth = (TextView) v.findViewById(R.id.GirthLine);
 
-            shareIntent.putExtra(Intent.EXTRA_TEXT, String.format(getString(R.string.share_text_from_table),
-                    weight.getText(),
-                    length.getText(), girth.getText()));
+            shareIntent.putExtra(Intent.EXTRA_TEXT,
+                                 String.format(getString(R.string.share_text_from_table),
+                                         weight.getText(), length.getText(), girth.getText()));
             shareIntent.setType("text/plain");
 
             mShareActionProvider.setShareIntent(shareIntent);
