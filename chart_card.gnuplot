@@ -29,20 +29,8 @@ usc_ale(L,G) = ale(L*2.54, G*2.54)/0.453592
 usc_old(L,G) = G*G*L/800
 old(L,G) = usc_old(L/2.54, G/2.54)*0.453592
 
-# Originally took cm, gave grams. This one is cm -> kg
-a = 0.00794
-b = 2.98
-stdweight(L) = a*L**b / 1000
-
-my_a = 0.0075
-my_b = 3.07
-mystdweight(L) = my_a*L**my_b / 1000
-
-# I put the ALE into wolfram alpha and said "solve for G". Life's too short.
-ale_for_g(L,W) = (sqrt((b2*L+b4)**2-4*(b1*L+b3)*(b0+b5*L-W))-b2*L-b4)/(2*(b1*L+b3))
-# Putting in the stdweight, taking the real part:
-stdgirth(L) = real(ale_for_g(L, stdweight(L)))
-mystdgirth(L) = real(ale_for_g(L, mystdweight(L)))
+# See the code.
+stdgirth(L) = 5.424571 + 0.479914*L
 
 set lmargin at screen 0.05
 set rmargin at screen 0.85
@@ -53,10 +41,10 @@ if (use_SI) {
     set xrange [100 : 250]
     set yrange [50  : 140]
     if (do_stdgirth) {
-        set nokey
+        set key outside right bottom
         unset xtics
         unset ytics
-        plot stdgirth(x), mystdgirth(x)
+        plot stdgirth(x) with linespoints
     } else {
         set key noautotitle
         set key outside right
