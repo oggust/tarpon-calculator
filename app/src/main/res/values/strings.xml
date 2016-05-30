@@ -52,8 +52,10 @@
 
         This app is Free Software. The code is at https://github.com/oggust/tarpon-calculator.git\n
         \n
-        If you want to donate anything, donate it to the Bonefish &amp; Tarpon Trust (BTT).\n
-        http://www.bonefishtarpontrust.org\n\n
-        Bugs? Feature requests? I\'m oggust@gmail.com</string>
-
+        If you want to donate anything, donate it to the good folks at the Tarpon &amp; Bonefish Research Center (TBRC) at http://www.tarponresearch.com
+       </string>
+    <string name="about_text2"><![CDATA[… or the Bonefish & Tarpon Trust (BTT).\n
+        http://www.bonefishtarpontrust.org]]></string>
+    <string name="contact_text">\n\nBugs? Feature requests? I\'m oggust@gmail.com</string>
+    <string name="tbrc_alt_text">TBRC logo</string>
 </resources>
