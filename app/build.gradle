@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 26
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.polytrout.tarpon"
-        minSdkVersion 11
-        targetSdkVersion 23
+        minSdkVersion 14
+        targetSdkVersion 26
     }
     signingConfigs {
         release {
@@ -25,5 +25,5 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:24.0.0-alpha1'
+    compile 'com.android.support:support-v4:26.1.0'
 }

@@ -28,10 +28,10 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:ellipsize="marquee"
-        android:singleLine="true"
         android:text="@string/example_text_date"
         android:textSize="12sp"
-        android:gravity="end" />
+        android:gravity="end"
+        android:singleLine="true" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -52,18 +52,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="26dip"
                 android:ellipsize="marquee"
-                android:singleLine="true"
                 android:text="@string/length"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:singleLine="true" />
 
             <TextView
                 android:id="@+id/LengthLine"
                 android:layout_width="wrap_content"
                 android:layout_height="26dip"
                 android:ellipsize="marquee"
-                android:singleLine="true"
                 android:text="@string/example_text_length"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:singleLine="true" />
         </LinearLayout>
 
         <LinearLayout
@@ -76,18 +76,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="26dip"
                 android:ellipsize="marquee"
-                android:singleLine="true"
                 android:text="@string/girth"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:singleLine="true" />
 
             <TextView
                 android:id="@+id/GirthLine"
                 android:layout_width="wrap_content"
                 android:layout_height="26dip"
                 android:ellipsize="marquee"
-                android:singleLine="true"
                 android:text="@string/example_text_girth"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:singleLine="true" />
 
         </LinearLayout>
     </LinearLayout>
