@@ -19,8 +19,8 @@ final class TarponTableContract {
         public static final String COLUMN_NAME_GIRTH = "girth";
         public static final String COLUMN_NAME_CTIME = "ctime";  // catch time
         public static final String COLUMN_NAME_TZ = "tz";
-        public static final String COLUMN_NAME_LAT = "lat";
-        public static final String COLUMN_NAME_LON = "lon";
+        static final String COLUMN_NAME_LAT = "lat";
+        static final String COLUMN_NAME_LON = "lon";
 
 
         public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " ("

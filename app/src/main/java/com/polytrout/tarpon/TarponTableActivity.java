@@ -92,9 +92,9 @@ public class TarponTableActivity extends ListActivity {
             item.setActionProvider(mShareActionProvider);
             Intent shareIntent = new Intent();
             shareIntent.setAction(Intent.ACTION_SEND);
-            TextView weight = (TextView) v.findViewById(R.id.WeightLine);
-            TextView length = (TextView) v.findViewById(R.id.LengthLine);
-            TextView girth = (TextView) v.findViewById(R.id.GirthLine);
+            TextView weight = v.findViewById(R.id.WeightLine);
+            TextView length = v.findViewById(R.id.LengthLine);
+            TextView girth = v.findViewById(R.id.GirthLine);
 
             shareIntent.putExtra(Intent.EXTRA_TEXT,
                                  String.format(getString(R.string.share_text_from_table),
@@ -127,12 +127,10 @@ public class TarponTableActivity extends ListActivity {
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 
 	private void setupActionBar() {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            if (getActionBar() != null) {
-                getActionBar().setDisplayHomeAsUpEnabled(true);
-            }
-		}
-	}
+        if (getActionBar() != null) {
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
 
 }
 

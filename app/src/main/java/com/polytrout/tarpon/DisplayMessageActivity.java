@@ -45,8 +45,8 @@ public class DisplayMessageActivity extends Activity {
         clown = sharedPref.getBoolean("pref_unit", false);
 
         // Get handles to the text views
-        TextView newResult = (TextView) findViewById(R.id.new_weight);
-        TextView oldResult = (TextView) findViewById(R.id.old_weight);
+        TextView newResult = findViewById(R.id.new_weight);
+        TextView oldResult = findViewById(R.id.old_weight);
 
         String weight_unit;
         if (clown) {
@@ -76,12 +76,10 @@ public class DisplayMessageActivity extends Activity {
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 
 	private void setupActionBar() {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            if (getActionBar() != null) {
-                getActionBar().setDisplayHomeAsUpEnabled(true);
-            }
-		}
-	}
+        if (getActionBar() != null) {
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -96,8 +94,8 @@ public class DisplayMessageActivity extends Activity {
 
             Intent shareIntent = new Intent();
             shareIntent.setAction(Intent.ACTION_SEND);
-            TextView newResult = (TextView) findViewById(R.id.new_weight);
-            TextView oldResult = (TextView) findViewById(R.id.old_weight);
+            TextView newResult = findViewById(R.id.new_weight);
+            TextView oldResult = findViewById(R.id.old_weight);
 
             shareIntent.putExtra(Intent.EXTRA_TEXT, String.format(getString(R.string.share_text),
                     newResult.getText(), oldResult.getText(),
@@ -177,7 +175,7 @@ public class DisplayMessageActivity extends Activity {
                 values);
 
         // Ghost button and change text to "saved"
-        Button b = (Button) findViewById(R.id.save_button);
+        Button b = findViewById(R.id.save_button);
         b.setText(getString(R.string.saved));
         b.setEnabled(false);
     }

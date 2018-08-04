@@ -14,7 +14,7 @@ public class AboutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        ImageView img = (ImageView) findViewById(R.id.tbrc_logo);
+        ImageView img = findViewById(R.id.tbrc_logo);
         img.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();

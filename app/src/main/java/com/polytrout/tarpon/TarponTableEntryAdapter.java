@@ -17,7 +17,7 @@ import java.util.Date;
 class TarponTableEntryAdapter extends CursorAdapter {
     private final LayoutInflater cursorInflater;
 
-    public TarponTableEntryAdapter(Context context, Cursor c) {
+    TarponTableEntryAdapter(Context context, Cursor c) {
         super(context, c, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
         cursorInflater = (LayoutInflater) context.getSystemService(
                      Context.LAYOUT_INFLATER_SERVICE);
@@ -33,10 +33,10 @@ class TarponTableEntryAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
 
-        TextView weight_tv = (TextView) view.findViewById(R.id.WeightLine);
-        TextView length_tv = (TextView) view.findViewById(R.id.LengthLine);
-        TextView girth_tv = (TextView) view.findViewById(R.id.GirthLine);
-        TextView date_tv = (TextView) view.findViewById(R.id.DateLine);
+        TextView weight_tv = view.findViewById(R.id.WeightLine);
+        TextView length_tv = view.findViewById(R.id.LengthLine);
+        TextView girth_tv = view.findViewById(R.id.GirthLine);
+        TextView date_tv = view.findViewById(R.id.DateLine);
         double length_val, girth_val;
         boolean used_usc = false;
 

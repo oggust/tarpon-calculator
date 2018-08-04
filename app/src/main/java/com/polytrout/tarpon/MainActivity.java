@@ -38,8 +38,8 @@ public class MainActivity extends Activity {
     
     /** Called when the user clicks the "Do the math" button */
     public void sendMessage(View view) {
-    	EditText lengthText = (EditText) findViewById(R.id.edit_message_length);
-    	EditText girthText = (EditText) findViewById(R.id.edit_message_girth);
+    	EditText lengthText = findViewById(R.id.edit_message_length);
+    	EditText girthText = findViewById(R.id.edit_message_girth);
     	String length = lengthText.getText().toString();
     	String girth = girthText.getText().toString();
 
