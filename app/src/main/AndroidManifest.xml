@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.polytrout.tarpon"
     android:versionCode="2"
-    android:versionName="1.1" >
+    android:versionName="1.2" >
 
     <application
         android:allowBackup="true"

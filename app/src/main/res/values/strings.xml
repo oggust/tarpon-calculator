@@ -42,7 +42,7 @@
     <string name="pref_unit">Imperial units</string>
     <string name="pref_unit_summary">aka \"US customary\"</string>
     <string name="title_activity_about">About</string>
-    <string name="version_text">Tarpon Calculator 1.1</string>
+    <string name="version_text">Tarpon Calculator 1.2</string>
     <string name="about_text">\n
         The \"New formula\" is from the paper
         \"A reliable game fish weight estimation model for Atlantic Tarpon (<i>Megalops atlanticus</i>)\"
@@ -50,12 +50,12 @@
         The \"Old formula\" is the classic (and quite inaccurate) \n
         <i>weight = length * girth * girth / 800</i>\n(inches, pounds)\n\n
 
-        This app is Free Software. The code is at https://github.com/oggust/tarpon-calculator.git\n
+        This app is Free Software. The code is at https://github.com/oggust/tarpon-calculator\n
         \n
-        If you want to donate anything, donate it to the good folks at the Tarpon &amp; Bonefish Research Center (TBRC) at http://www.tarponresearch.com
+        If you want to donate anything, donate it to the good folks at the Tarpon &amp; Bonefish Research Center (TBRC) at http://www.bonefishresearch.com
        </string>
     <string name="about_text2"><![CDATA[… or the Bonefish & Tarpon Trust (BTT).\n
-        http://www.bonefishtarpontrust.org]]></string>
+        https://www.bonefishtarpontrust.org]]></string>
     <string name="contact_text">\n\nBugs? Feature requests? I\'m oggust@gmail.com</string>
     <string name="tbrc_alt_text">TBRC logo</string>
 </resources>
