@@ -5,7 +5,7 @@ compileSdkVersion 34
     defaultConfig {
         applicationId "com.polytrout.tarpon"
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 34
     }
     signingConfigs {
         release {
