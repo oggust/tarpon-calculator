@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/tarpon-calculator.iml" filepath="$PROJECT_DIR$/tarpon-calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/tarpon-calculator.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/tarpon-calculator.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/tarpon-calculator.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/tarpon-calculator.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/tarpon-calculator.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/tarpon-calculator.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/tarpon-calculator.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/tarpon-calculator.app.unitTest.iml" />
     </modules>
   </component>
 </project>
