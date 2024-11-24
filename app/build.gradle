@@ -18,6 +18,8 @@ compileSdkVersion 34
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
 //            signingConfig signingConfigs.release
+            isDebuggable = false
+
         }
     }
     namespace 'com.polytrout.tarpon'
