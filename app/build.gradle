@@ -35,3 +35,8 @@ task wrapper(type: Wrapper){
 
 task prepareKotlinBuildScriptModel {
 }
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
